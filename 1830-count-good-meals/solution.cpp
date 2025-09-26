@@ -1,8 +1,6 @@
 class Solution {
 public:
-    bool powOfTwo(int n){
-        return (n>0 && (n&(n-1))==0);
-    }
+    
     int countPairs(vector<int>& deliciousness) {
 
         const int MOD = 1e9 + 7;
@@ -21,7 +19,7 @@ public:
             }
             mp[num]++;
         }
-        return ans ;
+        return ans % MOD;
    
     }
 };
