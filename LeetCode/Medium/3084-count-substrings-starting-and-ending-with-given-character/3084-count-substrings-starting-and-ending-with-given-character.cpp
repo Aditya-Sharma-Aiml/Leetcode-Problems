@@ -2,18 +2,16 @@ class Solution {
 public:
     long long countSubstrings(string s, char c) {
         
-        long long count = 0 ;
-        long long ans = 0 ;
-
-        for(int i=0 ; i<s.length() ; i++){
-            // phle str me kitne c aaye hai unke sath substr aor khud 
-            if ( s[i] == c && count >=0){
-
-                ans += count;
-                ans++;
-                count++;
-            }
+        //char c ...kuch bhi.... char c
+        //total = char c count + char cCount C 2
+        // cCount C 2 = cCount(cCount+1)/2;
+        int cCount = 0;
+        for(char ch : s){
+            if(ch==c) cCount++;
         }
-        return ans ;
+        long long cC2 = cCount * (cCount-1) / 2;
+        long long ans = cC2 + cCount;
+        return ans;
+
     }
 };
