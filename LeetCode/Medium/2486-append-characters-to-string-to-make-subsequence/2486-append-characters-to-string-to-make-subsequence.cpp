@@ -10,7 +10,8 @@ public:
                 i++;
                 j++;
             }
-            j++;
+            else
+                j++;
         }
         return m-i;   
     }
