@@ -9,6 +9,7 @@ private:
                 divisors.push_back(i);
                 if(i != n/i) divisors.push_back(n/i);
             }
+            if (divisors.size() > 4) return divisors;
         }
         return divisors;
     }
