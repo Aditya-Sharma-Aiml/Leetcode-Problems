@@ -2,13 +2,13 @@ class Solution {
 public:
     void generateCombinations(int idx, vector<int>&ds,int target, vector<int>&nums, vector<vector<int>>&ans ){
 
-        if (nums.size() == idx)
-            return;
-
         if (target == 0){
             ans.push_back(ds);
             return;
         }
+        if (nums.size() == idx)
+            return;
+
         if(nums[idx] <= target){
             ds.push_back(nums[idx]);
             // The same number may be chosen from candidates an unlimited number of times. => we will not increment idx so that we can choose again same value
