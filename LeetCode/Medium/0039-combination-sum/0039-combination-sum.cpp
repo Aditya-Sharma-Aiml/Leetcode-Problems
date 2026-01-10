@@ -2,11 +2,12 @@ class Solution {
 public:
     void generateCombinations(int idx, vector<int>&ds,int target, vector<int>&nums, vector<vector<int>>&ans ){
 
-        if (idx == nums.size()){
-            if(target == 0){
-                ans.push_back(ds);
-            }
-            return ;
+        if (nums.size() == idx)
+            return;
+
+        if (target == 0){
+            ans.push_back(ds);
+            return;
         }
         if(nums[idx] <= target){
             ds.push_back(nums[idx]);
