@@ -9,7 +9,7 @@ public:
 
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
-                
+
                 int alive = 0;
 
                 for(int k = 0; k < 8; k++){
@@ -22,7 +22,7 @@ public:
                     // 2	dead → alive
 
                     if(di >= 0 && di < n && dj >= 0 && dj < m &&
-                      (board[di][dj] == 1 || board[di][dj] == -1))
+                      (board[di][dj] == 1 || board[di][dj] == -1)) // phle ya toh 1 wla ya -1 wla alive banaya tha
                     {
                         alive++;
                     }
