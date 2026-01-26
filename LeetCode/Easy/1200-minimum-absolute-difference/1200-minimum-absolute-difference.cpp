@@ -11,6 +11,7 @@ public:
             int diff = arr[i] - arr[i-1];
             if(diff < minDiff){
                 minDiff = diff;
+                ans.clear();
                 ans.push_back({arr[i-1], arr[i]});
             }
             else if(diff == minDiff)
