@@ -23,10 +23,12 @@ public:
 
             if(curr->next && curr->val == curr->next->val){
 
-                ListNode* dup = curr;
+                int dupVal = curr->val;
 
-                while(curr && curr->val == dup->val){
-                    curr = curr ->next;
+                while(curr && curr->val == dupVal){
+                    ListNode* temp = curr;   
+                    curr = curr->next;
+                    delete temp;
                 }
                 prev->next = curr;
             }
