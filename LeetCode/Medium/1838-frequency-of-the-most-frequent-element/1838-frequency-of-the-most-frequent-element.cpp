@@ -16,14 +16,14 @@ public:
         sort(nums.begin(), nums.end());
 
         long long currSum = 0 ;
-        
+
         while(r<nums.size()){
 
             currSum += nums[r];
 
-            long long required = nums[r] * (r-l+1) - currSum;
+            // long long required = nums[r] * (r-l+1) - currSum;
 
-            if(required > k ){
+            if((long long)nums[r] * (r-l+1) - currSum > k ){
 
                 currSum -= nums[l];
                 l++;
