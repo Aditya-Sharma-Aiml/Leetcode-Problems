@@ -15,14 +15,14 @@ public:
                 int height = heights[st.top()]; // arr[i]
                 st.pop();
 
-                int width = 0;
+                int width = st.empty() ? i : i - st.top() - 1;
 
-                if(st.empty()){ // edge case
-                    width = i;
-                }
-                else{
-                    width = i - st.top() - 1; // (nse-pse-1)
-                }
+                // if(st.empty()){ // edge case
+                //     width = i;
+                // }
+                // else{
+                //     width = i - st.top() - 1; // (nse-pse-1)
+                // }
 
                 maxArea = max(maxArea, height * width);
             }
