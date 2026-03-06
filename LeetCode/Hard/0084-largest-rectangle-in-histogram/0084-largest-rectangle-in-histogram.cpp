@@ -1,46 +1,33 @@
 class Solution {
-private:
-    vector<int>findNSEidx(vector<int>& arr){
-        int n = arr.size();
-        stack<int>st;
-        vector<int>nseIdx(n);
-
-        for(int i=n-1; i>=0; i--){
-
-            while(!st.empty() && arr[st.top()] >= arr[i]) st.pop();
-            nseIdx[i] = st.empty() ? n : st.top();
-            st.push(i); 
-        }
-        return nseIdx;
-    }
-    vector<int>findPSEidx(vector<int>& arr){
-        int n = arr.size();
-        stack<int>st;
-        vector<int>pseIdx(n);
-
-        for(int i=0; i<n ; i++){
-
-            while(!st.empty() && arr[st.top()] >= arr[i]) st.pop();
-            pseIdx[i] = st.empty() ? -1 : st.top();
-            st.push(i); 
-        }
-        return pseIdx;
-    }
 public:
     int largestRectangleArea(vector<int>& heights) {
+        
         int n = heights.size();
+        stack<int>st;
 
-        vector<int>nseIdx = findNSEidx(heights);
-        vector<int>pseIdx = findPSEidx(heights);
+        int maxArea = 0; // area = arr[i] * (nse - pse - 1)
 
-        int maxi = 0;
-        for(int i=0; i<n; i++){
+        for(int i=0; i<=n; i++){
 
-            int height = heights[i];
-            int width = ( nseIdx[i] - pseIdx[i] - 1);
+            while(!st.empty() 
+                    && (i==n || heights[st.top()] >= heights[i]))
+            {
+                int height = heights[st.top()]; // arr[i]
+                st.pop();
 
-            maxi = max(maxi, height*width);
+                int width = 0;
+
+                if(st.empty()){ // edge case
+                    width = i;
+                }
+                else{
+                    width = i - st.top() - 1; // (nse-pse-1)
+                }
+
+                maxArea = max(maxArea, height * width);
+            }
+            st.push(i);
         }
-        return maxi;
+        return maxArea;
     }
 };
