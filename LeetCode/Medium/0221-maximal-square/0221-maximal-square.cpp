@@ -15,8 +15,10 @@ private :
 
                 int width = st.empty() ? i : i - st.top() - 1;
                 
+                //xxxxxxxxx only change in maximal rectangle xxxxx
                 int side = min(height, width);   // square side
                 maxA = max(maxA, side * side);   // square area
+                // xxxxxx xxxxxxxxx xxxxxxx
             }
 
             st.push(i);
