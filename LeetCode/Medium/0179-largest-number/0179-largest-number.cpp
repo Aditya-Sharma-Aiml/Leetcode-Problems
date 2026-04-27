@@ -13,7 +13,7 @@ public:
         // Edge case: all zeros
         if (arr[0] == "0") return "0";
 
-        string ans;
+        string ans = "";
         for (auto &s : arr) {
             ans += s;
         }
