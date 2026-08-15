@@ -17,8 +17,8 @@ class Solution {
             chars[idx++] = curr;
 
             if(count > 1){
-                // String countStr = String.valueOf(count);
-                String countStr = Integer.toString(count);
+                String countStr = String.valueOf(count);
+                // String countStr = Integer.toString(count);
 
                 for(char ch : countStr.toCharArray()){
                     chars[idx++] = ch;
