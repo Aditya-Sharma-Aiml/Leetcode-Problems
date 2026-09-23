@@ -11,33 +11,22 @@
  */
 class Solution {
 public:
-    pair<int, int> diameter(TreeNode* root){
+    int height(TreeNode* root, int &dia ){
 
-        if(!root ){
-            pair<int, int> p= make_pair(0,0);
-            return p;
+        if(!root) return 0;
 
-        }
+        if(!root) return 0;
 
-        // op1 : left diameter
-        pair<int, int> left = diameter(root->left);
-        int op1 = left.first; 
+        int lh = height(root->left, dia);
+        int rh = height(root->right, dia);
 
-        //op2 : // right diameter
-        pair<int, int> right = diameter(root->right);
-        int op2 = right.first;
+        dia = max(dia , lh+rh);
 
-        //op3 : merge left right -> height
-        int op3 = left.second + right.second; // edge count not node
-
-        pair<int, int> ans;
-        ans.first = max(op1, max(op2, op3));
-        ans.second = max(left.second, right.second) + 1;
-
-        return ans;
-
+        return 1 + max(lh, rh);
     }
     int diameterOfBinaryTree(TreeNode* root) {
-        return diameter(root).first;
+        int dia = 0;
+        height(root, dia);
+        return dia;
     }
 };
