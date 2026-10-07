@@ -37,8 +37,8 @@ public:
         for(int i=0; i<inorder.size(); i++){
             inorderIndexMap[inorder[i]] = i;
         }
-        int inStart = 0, inEnd = preorder.size()-1;
-        int preStart = 0, preEnd = inorder.size()-1;
+        int inStart = 0, inEnd = inorder.size()-1;
+        int preStart = 0, preEnd = preorder.size()-1;
 
         TreeNode* root = buildTreeHelper(preorder, preStart, preEnd, 
                                         inorder, inStart, inEnd, inorderIndexMap);
